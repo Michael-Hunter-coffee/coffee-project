@@ -2,7 +2,7 @@
 
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
-    html += '<div class="id">' + coffee.id + '</div>';
+    // html += '<div class="id">' + coffee.id + '</div>';
     html += '<div class="name">' + coffee.name + '</div>';
     html += '<div class="roast">' + coffee.roast + '</div>';
     html += '</div>';
@@ -25,6 +25,8 @@ function updateCoffees(e) {
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+        } else if (selectedRoast === 'all'){
+            filteredCoffees.push(coffee);
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
@@ -42,10 +44,33 @@ function search(){
         tbody.innerHTML = renderCoffees(list);
     }
     else {
-        var
+        var list2 = [];
+        coffees.forEach(function(coffee){
+            if(coffee.roast === roastSelection.value){
+                list2.push(coffee);
+            }
+        });
+        list = [];
+        list2.forEach(function(coffee){
+            var coffeename = coffee.name;
+            if(coffeename.toLowerCase().includes(searchBar.value.toLowerCase())){
+                list.push(coffee)
+            }
+        });
+        tbody.innerHTML = renderCoffees(list);
     }
 
 
+}
+function addCoffee(){
+    var newRoast = document.getElementById('#roast-add');
+    var newName = document.getElementById('#name-add');
+    var newCoffee = {
+        name: newName.value,
+        roast: newRoast.value
+    };
+    coffees.push(newCoffee);
+    tbody.innerHTML = renderCoffees(coffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -70,13 +95,16 @@ var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var searchBar = document.querySelector('#search');
-searchBar.addEventListener("search", updateCoffees());
+var addButton = document.querySelector('#submit-add');
+searchBar.addEventListener("input", search());
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
 roastSelection.addEventListener('change', updateCoffees);
-searchBar.addEventListener('keyup', searchBar);
+searchBar.addEventListener('keyup', search);
+addButton.addEventListener('click', addCoffee);
+
 
 
 
