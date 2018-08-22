@@ -1,10 +1,10 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<div class="coffee">';
+    var html = '<div class="coffee row">';
     // html += '<div class="id">' + coffee.id + '</div>';
-    html += '<div class="name">' + coffee.name + '</div>';
-    html += '<div class="roast">' + coffee.roast + '</div>';
+    html += '<div class="name col-6 text-right">' + coffee.name + '</div>';
+    html += '<div class="roast col-6">' + coffee.roast + '</div>';
     html += '</div>';
 
     return html;
@@ -96,7 +96,7 @@ var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var searchBar = document.querySelector('#search');
 var addButton = document.querySelector('#submit-add');
-searchBar.addEventListener("input", search());
+searchBar.addEventListener("input", search);
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
