@@ -8,26 +8,26 @@ td, th {
     padding: 5px 10px;
 }
 
-.name {
-    font-size: 2em;
-    /*margin-left: 4em;*/
-    /*margin-top: 1em;*/
+/*.name {*/
+    /*font-size: 2em;*/
+    /*!*margin-left: 4em;*!*/
+    /*!*margin-top: 1em;*!*/
 
-}
+/*}*/
 
-.roast {
-    /*float: right;*/
-    color: lightgrey;
-    /*margin-right: 9em;*/
-    /*margin-bottom: 2px;*/
-    padding-top: 1em;
+/*.roast {*/
+    /*!*float: right;*!*/
+    /*color: lightgrey;*/
+    /*!*margin-right: 9em;*!*/
+    /*!*margin-bottom: 2px;*!*/
+    /*padding-top: 1em;*/
 
 
-}
-.col-6{
-    padding-right: 0;
-    padding-left: 7.5px;
-}
+/*}*/
+/*.col-6{*/
+    /*padding-right: 0;*/
+    /*padding-left: 7.5px;*/
+/*}*/
 
 
 
